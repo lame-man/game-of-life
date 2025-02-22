@@ -2,20 +2,10 @@
 │
 ├── /src                     # Source code for the Game of Life
 │   ├── main.lua             # Main entry point of the application
-│   ├── game.lua             # Game logic and rules for the Game of Life
 │   ├── grid.lua             # Grid management (initialization, updating)
-│   ├── cell.lua             # Cell representation (alive/dead state)
-│   └── utils.lua            # Utility functions (e.g., random initialization)
-│
-├── /assets                  # Assets for the game (images, sounds, etc.)
-│   ├── cell_alive.png       # Image for alive cells (optional)
-│   ├── cell_dead.png        # Image for dead cells (optional)
-│   └── sounds               # Sound effects (if any)
-│
-├── /lib                     # External libraries (if any)
-│   └── [library_name].lua   # Any third-party libraries you might use
+│   └── grid_naive.lua       # Naive Grid management implementation
 │
 ├── /docs                    # Documentation for the project
-│   └── README.md            # Project documentation and instructions
+│   └── code_structure.txt   # You Are Here
 │
 └── .gitignore               # Git ignore file (if using version control)
