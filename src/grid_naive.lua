@@ -1,7 +1,5 @@
 local grid = {}
 local nextGrid = {}
--- John Conway's game of life with 0,1,2,3 corresponding to dead, alive-next, dead-next, alive.
--- If there are exactly three neighbors alive, the cell gets to live. Otherwise it dies.
 function grid.initialize(cols, rows)
     grid.cols = cols
     grid.rows = rows
@@ -94,8 +92,5 @@ function grid.toggleCell(col, row)
     end
 end
 
-function grid.getGrid()
-    return grid
-end
 
 return grid
