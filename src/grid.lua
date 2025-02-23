@@ -71,7 +71,10 @@ function grid.draw()
     end
 end
 
-function grid.toggleCell(col, row)
+function grid.toggleCell(x, y)
+    CELL_SIZE = grid.cellsize
+    col = math.floor(x / CELL_SIZE) + 1
+    row = math.floor(y / CELL_SIZE) + 1
     if grid[col][row] == 3 then
         grid[col][row] = 0
     elseif grid[col][row] == 0 then
