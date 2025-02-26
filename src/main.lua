@@ -5,15 +5,30 @@ local WINDOW_HEIGHT = 600
 local CELL_SIZE = 10
 local gamestate = "menu"
 local count = 0
-
+local keys = {
+    up = false,
+    down = false,
+    right = false,
+    left = false
+}
+local gridSpeed = 10
 function love.load()
     love.window.setTitle("Game of Life")
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT)
     -- grid.initialize(WINDOW_WIDTH / CELL_SIZE, WINDOW_WIDTH / CELL_SIZE)
-    grid.initialize(WINDOW_WIDTH, WINDOW_WIDTH, CELL_SIZE)
+    grid.initialize(WINDOW_WIDTH/5, WINDOW_WIDTH/5, CELL_SIZE)
 end
 
 function love.update(dt)
+    if keys.right then
+        grid.pan(gridSpeed, 0)
+    elseif keys.left then
+        grid.pan(-gridSpeed, 0)
+    elseif keys.up then
+        grid.pan(0, -gridSpeed)
+    elseif keys.down then
+        grid.pan(0, gridSpeed)
+    end
     if gamestate == "play" then
         grid.update()
     end
@@ -41,5 +56,26 @@ function love.keypressed(key)
         elseif gamestate == "play" then
             gamestate = "menu" 
         end
+    elseif key == "up" then
+        keys.up = true
+    elseif key == "down" then
+        keys.down = true
+    elseif key == "right" then
+        keys.right = true
+    elseif key == "left" then
+        keys.left = true
+    end
+end
+
+
+function love.keyreleased(key)
+    if key == "up" then
+        keys.up = false
+    elseif key == "down" then
+        keys.down = false
+    elseif key == "right" then
+        keys.right = false
+    elseif key == "left" then
+        keys.left = false
     end
 end
